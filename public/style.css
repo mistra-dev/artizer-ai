@@ -1,0 +1,298 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--text-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    color: var(--text-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.analysis-container, .loading, .result {
+    border: 1px solid var(--text-color);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+input[type="url"] {
+    width: 100%;
+    height: 42px;
+    padding: 0 1rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type="url"]:focus {
+    outline: none;
+    border-width: 2px;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.control-item {
+    height: 42px;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+select.control-item {
+    width: 150px;
+    padding: 0 2.5rem 0 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em;
+}
+
+.theme-toggle {
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analyze-btn {
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.analyze-btn:hover, .theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.loading {
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--bg-color);
+    border-top-color: var(--text-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.copy-btn {
+    height: 42px;
+    padding: 0 1rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.result-content {
+    white-space: pre-wrap;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.result-section {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid var(--text-color);
+}
+
+
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-label {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+
+html[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+html[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 2rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .analysis-container {
+        padding: 1.5rem;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .control-item {
+        width: 100% !important;
+    }
+
+    .theme-switch {
+        top: 10px;
+        right: 10px;
+    }
+
+    .theme-label {
+        font-size: 20px;
+    }
+}
+
+
+.result-content h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 0.5rem;
+}
+
+.result-content h3 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.result-content strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.result-content ul, 
+.result-content ol {
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+.result-content li {
+    margin: 0.5rem 0;
+}
+
+.result-content blockquote {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--text-color);
+}
+
+.options-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.custom-prompt {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.custom-prompt textarea {
+    width: 100%;
+    height: 100px;
+    padding: 1rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.result-content strong,
+.result-content b {
+    font-weight: bold;
+}
+
+.result-content em,
+.result-content i {
+    font-style: italic;
+}
+
+.result-content h1,
+.result-content h2,
+.result-content h3,
+.result-content h4 {
+    margin: 1.5rem 0 1rem;
+} 

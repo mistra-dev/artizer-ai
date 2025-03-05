@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Article Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Artizer AI</h1>
+            <p class="subtitle">Article Analyzer</p>
+        </header>
+
+        <main>
+            <div class="analysis-container">
+                <input type="url" id="articleUrl" placeholder="Enter article URL">
+                
+                <div class="controls">
+                    <select id="analysisType" class="control-item">
+                        <option value="complete">Analisis Lengkap</option>
+                        <option value="summary">Ringkasan Singkat</option>
+                        <option value="advanced">Analisis Mendalam</option>
+                        <option value="custom">Custom Prompt</option>
+                    </select>
+                    <select id="language" class="control-item">
+                        <option value="id">ID</option>
+                        <option value="en">EN</option>
+                    </select>
+                    <button id="themeToggle" class="control-item theme-toggle">
+                        <span class="theme-label">☀️</span>
+                    </button>
+                    <button id="analyzeBtn" class="control-item analyze-btn">Analyze</button>
+                </div>
+
+                <div id="customPromptContainer" class="custom-prompt" style="display: none;">
+                    <textarea id="customPrompt" placeholder="Masukkan prompt custom Anda..."></textarea>
+                </div>
+            </div>
+
+            <div id="resultContainer">
+                
+                
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Artizer AI</p>
+        </footer>
+    </div>
+
+    
+    <template id="loadingTemplate">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Analyzing content...</p>
+        </div>
+    </template>
+
+    
+    <template id="resultTemplate">
+        <div class="result">
+            <div class="result-header">
+                <h2>Analysis Result</h2>
+                <button class="copy-btn">Copy</button>
+            </div>
+            <div class="result-content"></div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html> 
